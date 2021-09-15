@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row report-container">
+        <div class="col-8">
+            <div class="row">
+                <div class="col">
+                    <p>Id : {{ data.id }}</p>
+                    <p>State : {{ data.state }}</p>
+                </div>
+                <div class="col">
+                    <p>Type : {{ data.payload.reportType }}</p>
+
+                    <p>message : {{ data.payload.message || 'No Message' }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <a href="#">Details</a>
+            </div>
+        </div>
+
+        <div class="col-4 btns">
+            <button class="btn" (click)="resolveReport(data.id)">Resolve</button>
+            <button class="btn" (click)="blockReport(data.id)">Block</button>
+        </div>
+    </div>
+</div>
