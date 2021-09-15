@@ -7,7 +7,7 @@ import { Report } from 'src/app/models/Report';
     providedIn: 'root',
 })
 export class ReportService {
-    private apiUrl = 'http://localhost:3000/reports';
+    private apiUrl = 'https://aaib-task.herokuapp.com/reports';
     behSub = new BehaviorSubject<Report[]>([]);
 
     constructor(private _http: HttpClient) {}
