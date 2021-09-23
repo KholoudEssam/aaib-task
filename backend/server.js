@@ -7,6 +7,8 @@ const app = express();
 dotenv.config({ path: './config/config.env' });
 require('./config/db');
 
+require('./config/data')();
+
 const reportsRoute = require('./routes/reports');
 const AppError = require('./utils/AppError');
 

@@ -11,10 +11,12 @@ export class ReportsComponent implements OnInit {
     constructor(private reportService: ReportService) {}
 
     reports: Report[] = [];
+    loading = true;
 
     ngOnInit(): void {
         this.reportService.getReports();
         this.reportService.behSub.subscribe((data) => {
+            this.loading = false;
             this.reports = data;
         });
     }

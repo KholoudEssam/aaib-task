@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+    front:
+        depends_on:
+            - back
+        build: ./client
+        image: kholoud53/mean-fe
+        ports:
+            - '8080:80'
+    back:
+        depends_on:
+            - db
+        build: ./backend
+        image: kholoud53/mean-be
+        ports:
+            - '3000:3000'
+        environment:
+            MONGO_URI: mongodb://db/reportsdb
+    db:
+        image: mongo
+        ports:
+            - '27017:27017'

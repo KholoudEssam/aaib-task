@@ -7,15 +7,16 @@ import { Report } from 'src/app/models/Report';
     providedIn: 'root',
 })
 export class ReportService {
-    private apiUrl = 'https://aaib-task.herokuapp.com/reports';
+    private apiUrl = 'http://localhost:3000/reports';
     behSub = new BehaviorSubject<Report[]>([]);
 
     constructor(private _http: HttpClient) {}
 
     getReports() {
-        this._http.get<Report[]>(this.apiUrl).subscribe((data) => {
-            this.behSub.next(data);
-        });
+        this._http.get<Report[]>(this.apiUrl).subscribe(
+            (data) => this.behSub.next(data),
+            (err) => this.behSub.next([])
+        );
     }
     blockReport(id: string) {
         return this._http.delete<{ message: '' }>(`${this.apiUrl}/${id}`);

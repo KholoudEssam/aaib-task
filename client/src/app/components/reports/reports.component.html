@@ -1,3 +1,7 @@
-<ng-container *ngFor="let report of reports">
-    <app-report-box [data]="report"></app-report-box>
-</ng-container>
+<p *ngIf="loading" else="show">LOADING ...</p>
+<div #show>
+    <p *ngIf="reports.length === 0 && !loading">No Reports yet!</p>
+    <ng-container *ngFor="let report of reports">
+        <app-report-box [data]="report"></app-report-box>
+    </ng-container>
+</div>
