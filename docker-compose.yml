@@ -4,14 +4,14 @@ services:
     front:
         depends_on:
             - back
-        build: ./client
+        #build: ./client
         image: kholoud53/mean-fe
         ports:
-            - '8080:80'
+            - '4200:80'
     back:
         depends_on:
             - db
-        build: ./backend
+        #build: ./backend
         image: kholoud53/mean-be
         ports:
             - '3000:3000'
